@@ -10,6 +10,15 @@ var traverseDomAndCollectElements = function (matchFunc, startEl) {
     resultSet.push(startEl)
   }
 
+ if (startEl.children) {
+   let childrenArr = Array.prototype.slice.call(startEl.children);
+
+   childrenArr.forEach(child => {
+     let subResultSet = traverseDomAndCollectElements(matchFunc, child);
+     resultSet = resultSet.concat(subResultSet);
+   })
+ }
+
   return resultSet;
 };
 
@@ -65,4 +74,3 @@ var $ = function (selector) {
   elements = traverseDomAndCollectElements(selectorMatchFunc);
   return elements;
 };
-
