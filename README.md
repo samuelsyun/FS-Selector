@@ -1,4 +1,6 @@
-selector.js
+#Workshop from Fullstack Academy of Code
+
+Selector.js
 ===========
 
 Building a CSS selector and DOM traverser.
